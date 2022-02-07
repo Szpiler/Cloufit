@@ -1,0 +1,26 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <c-customlwclookup object-name="Event__c" field-name="Name"
+				label="Event Name" parentidfield="Location__c"
+				iconname="standard:location"
+				onchange={onLocationChange}>
+	</c-customlwclookup>
+
+    <lightning-input class="slds-p-around_small" type="datetime" label="Start Date" onchange={onStartDateChange} required></lightning-input>
+
+    <c-customlwclookup object-name="Location__c" field-name="Name"
+				label="Event Location" parentidfield="Location__c"
+				iconname="standard:location"
+				onchange={onLocationChange}>
+	</c-customlwclookup>
+
+    <template if:true={events.data}>
+        <lightning-datatable 
+            hide-checkbox-column 
+            key-field="Id"
+            data={events.data}
+            columns={columns}
+        >  
+        </lightning-datatable>
+    </template>
+</template>

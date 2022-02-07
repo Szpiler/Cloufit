@@ -1,0 +1,37 @@
+<template>
+
+    <h2 class="slds-p-around_large">
+        <lightning-icon icon-name="standard:event" alternative-text="Event" title="Event"></lightning-icon>
+        &nbsp; My Events
+    </h2>
+
+    <lightning-accordion
+        allow-multiple-sections-open
+        active-section-name={activeSections}
+    >
+        <lightning-accordion-section name="Upcomig Events" label="Upcomig Events">
+            <template if:true={upcomigEvents.data}>
+                <lightning-datatable 
+                    hide-checkbox-column 
+                    key-field="Id"
+                    data={upcomigEvents.data}
+                    columns={upcomingColumns}
+                >  
+                </lightning-datatable>
+            </template>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="Past Events" label="Past Events">
+            <template if:true={pastEvents.data}>
+                <lightning-datatable 
+                    hide-checkbox-column 
+                    key-field="Id"
+                    data={pastEvents.data}
+                    columns={pastColumns}
+                >  
+                </lightning-datatable>
+            </template>
+        </lightning-accordion-section>
+
+    </lightning-accordion>
+</template>

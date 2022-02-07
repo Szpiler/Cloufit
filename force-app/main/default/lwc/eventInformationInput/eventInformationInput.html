@@ -1,0 +1,44 @@
+<template>
+	<div class="slds-m-top_medium slds-m-bottom_medium">
+		<h2 class="slds-p-around_large">
+				<lightning-icon icon-name="standard:event" alternative-text="Event" title="Event"></lightning-icon>
+				&nbsp; Event Information
+		</h2>
+		<div class="slds-p-around_small">
+			<lightning-input type="text" label="Name" onchange={onNameChange} required></lightning-input>
+
+			<c-customlwclookup object-name="Event_Organizer__c" field-name="Name"
+				label="Event Organizer" parentidfield="Organizer__c"
+				iconname="standard:user"
+				onchange={onOrganizerChange} >
+			</c-customlwclookup>
+
+			<lightning-input type="datetime" label="Start Date" onchange={onStartDateChange} required></lightning-input>
+				
+			<lightning-input type="datetime" label="End Date" onchange={onEndDateChange}></lightning-input>
+					
+			<lightning-input type="number" label="Max Attendees" onchange={onMaxAttendeesChange} required></lightning-input>
+			
+			<c-customlwclookup object-name="Event__c" field-name="Name"
+				label="Location" parentidfield="Location__c"
+				iconname="standard:location"
+				onchange={onLocationChange} >
+			</c-customlwclookup>
+		</div>
+				
+		<div class="slds-p-around_small">
+			<div class="slds-p-bottom_medium">
+				<lightning-input-rich-text
+					value={richtext}
+					onchange={handleChange}>
+				</lightning-input-rich-text>
+				<lightning-formatted-rich-text>
+					value={richtext}
+				</lightning-formatted-rich-text>
+			</div>
+			<lightning-button variant="neutral" name="Cancel" label="Cancel" onclick={handleCancel}></lightning-button> &nbsp;
+			<lightning-button variant="brand" name="Add Event" label="Add Event" onclick={insertEventAction}>
+			</lightning-button>
+		</div>		
+	</div>
+</template>

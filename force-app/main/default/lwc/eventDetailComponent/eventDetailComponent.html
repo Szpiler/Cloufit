@@ -1,0 +1,62 @@
+<template>
+	<h2 class="slds-p-around_small">
+		<lightning-icon icon-name="standard:event" alternative-text="Event Details" title="Event Details"></lightning-icon>
+		&nbsp; Event Details
+	</h2>
+	<lightning-tabset>
+		<lightning-tab label="Event Details">
+            <lightning-record-form 
+                object-api-name={objectApiName}
+                layout-type="Full"
+                columns="2"
+                mode={modeName}
+                record-id={recordId}>               
+            </lightning-record-form>
+		</lightning-tab>
+
+		<lightning-tab label="Speaker Details">
+            <lightning-button 
+                variant="brand" 
+                label="New Speaker" 
+                title="Primary action" 
+                onclick={handleClick} 
+                class="slds-m-left_x-small"
+            >
+            </lightning-button>
+            <template if:true={speakers.data}>
+                <lightning-datatable 
+                    hide-checkbox-column 
+                    key-field="Id"
+                    data={speakers.data}
+                    columns={columns}
+                >  
+                </lightning-datatable>
+            </template>
+           <!-- <lightning-button 
+                variant="brand" 
+                label="New Speaker" 
+                title="Primary action" 
+                onclick={handleClick} 
+                class="slds-m-left_x-small"
+            >
+            </lightning-button>
+            <template if:true={speakers.data}>
+                <lightning-datatable  
+                    icon-name="standart:avatar"
+                    key-field="Id"
+                    data={speakers.data}
+                    columns={columns}
+                >  
+            </lightning-datatable>
+            </template>-->
+		</lightning-tab>
+
+		<lightning-tab label="Location Details">
+            <p>{locations.data}</p>
+		</lightning-tab>
+
+		<lightning-tab label="Attendees Details">
+
+		</lightning-tab>
+	</lightning-tabset>
+</template>
