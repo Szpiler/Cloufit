@@ -7,5 +7,5 @@ import getSpeakers from '@salesforce/apex/SpeakerController.getSpeakers';
 export default class SpeakersTile extends LightningElement {
 
     @wire(getSpeakers, {fields: [SPEAKER_NAME_FIELD], optionalFields: [SPEAKER_PHONE_FIELD, SPEAKER_EMAIL_FIELD] })
-    speakers;
+    speakersTile;
 }

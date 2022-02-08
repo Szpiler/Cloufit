@@ -24,7 +24,7 @@
                     class="slds-m-left_x-small"
                 >
                 </lightning-button>
-                <template if:true={speakers.data}>
+                <!-- <template if:true={speakers.data}>
                     <lightning-datatable 
                         hide-checkbox-column 
                         key-field="Id"
@@ -32,7 +32,8 @@
                         columns={columns}
                     >  
                     </lightning-datatable>
-                </template>   
+                </template>    -->
+                <c-speakers-tile></c-speakers-tile>
             </lightning-tab>
     
             <lightning-tab label="Location Details">
@@ -40,7 +41,15 @@
             </lightning-tab>
     
             <lightning-tab label="Attendees Details">
-    
+                <template if:true={attendees.data}>
+                    <lightning-datatable 
+                        hide-checkbox-column 
+                        key-field="Id"
+                        data={attendees.data}
+                        columns={attendeeColumns}
+                    >  
+                    </lightning-datatable>
+                </template>
             </lightning-tab>
         </lightning-tabset>
     </div>

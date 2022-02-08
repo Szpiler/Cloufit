@@ -1,6 +1,6 @@
 <template>
     <div class="slds-p-around_medium lgc-bg">
-        <lightning-tile type="media" for:each={speakers.data} for:item="spk" key={spk.id}>
+        <lightning-tile type="media" for:each={speakersTile.data} for:item="spk" key={spk.id}>
             <lightning-icon slot="media" icon-name="standard:groups"></lightning-icon>
             <p key={spk.id}>
                 {spk.Name}
